@@ -30,5 +30,5 @@ spring:
       jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=20)
 
 logging:
-  path: log
+  path: /my/sticker
   config: classpath:logback-spring.xml #��־�������ļ�λ��
