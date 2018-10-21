@@ -20,4 +20,19 @@ public class JsonUtils {
             throw new RuntimeException();
         }
     }
+    /**
+            * 将Json字符串转为对象
+     * @param jsonString
+     * @return
+             * @throws JsonProcessingException
+     */
+    public static <T> T jsonStringToObject(String jsonString, Class<T> type)  {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(jsonString, type);
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
 }

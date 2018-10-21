@@ -18,6 +18,10 @@ public class UserService implements IUserService {
 
     @Override
     public int addUser(User user) {
+        User u = queryUserByOpenId(user.getOpenId());
+        if (u != null){
+            return 0;
+        }
         return userDAO.insertSelective(user);
     }
 
@@ -27,6 +31,6 @@ public class UserService implements IUserService {
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andOpenIdEqualTo(openId);
         List<User> users = userDAO.selectByExample(example);
-        return users == null ? null : users.get(0);
+        return users.size() == 0  ? null : users.get(0);
     }
 }
