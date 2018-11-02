@@ -13,7 +13,7 @@ public class StickerExample {
 
     private Integer limit;
 
-    private Long offset;
+    private Integer offset;
 
     public StickerExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -76,11 +76,11 @@ public class StickerExample {
         return limit;
     }
 
-    public void setOffset(Long offset) {
+    public void setOffset(Integer offset) {
         this.offset = offset;
     }
 
-    public Long getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 
@@ -315,243 +315,193 @@ public class StickerExample {
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedIsNull() {
-            addCriterion("today_used is null");
+        public Criteria andAmountIsNull() {
+            addCriterion("amount is null");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedIsNotNull() {
-            addCriterion("today_used is not null");
+        public Criteria andAmountIsNotNull() {
+            addCriterion("amount is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedEqualTo(Integer value) {
-            addCriterion("today_used =", value, "todayUsed");
+        public Criteria andAmountEqualTo(Integer value) {
+            addCriterion("amount =", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedNotEqualTo(Integer value) {
-            addCriterion("today_used <>", value, "todayUsed");
+        public Criteria andAmountNotEqualTo(Integer value) {
+            addCriterion("amount <>", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedGreaterThan(Integer value) {
-            addCriterion("today_used >", value, "todayUsed");
+        public Criteria andAmountGreaterThan(Integer value) {
+            addCriterion("amount >", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedGreaterThanOrEqualTo(Integer value) {
-            addCriterion("today_used >=", value, "todayUsed");
+        public Criteria andAmountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("amount >=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedLessThan(Integer value) {
-            addCriterion("today_used <", value, "todayUsed");
+        public Criteria andAmountLessThan(Integer value) {
+            addCriterion("amount <", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedLessThanOrEqualTo(Integer value) {
-            addCriterion("today_used <=", value, "todayUsed");
+        public Criteria andAmountLessThanOrEqualTo(Integer value) {
+            addCriterion("amount <=", value, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedIn(List<Integer> values) {
-            addCriterion("today_used in", values, "todayUsed");
+        public Criteria andAmountIn(List<Integer> values) {
+            addCriterion("amount in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedNotIn(List<Integer> values) {
-            addCriterion("today_used not in", values, "todayUsed");
+        public Criteria andAmountNotIn(List<Integer> values) {
+            addCriterion("amount not in", values, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedBetween(Integer value1, Integer value2) {
-            addCriterion("today_used between", value1, value2, "todayUsed");
+        public Criteria andAmountBetween(Integer value1, Integer value2) {
+            addCriterion("amount between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andTodayUsedNotBetween(Integer value1, Integer value2) {
-            addCriterion("today_used not between", value1, value2, "todayUsed");
+        public Criteria andAmountNotBetween(Integer value1, Integer value2) {
+            addCriterion("amount not between", value1, value2, "amount");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaIsNull() {
-            addCriterion("used_quota is null");
+        public Criteria andContentIsNull() {
+            addCriterion("content is null");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaIsNotNull() {
-            addCriterion("used_quota is not null");
+        public Criteria andContentIsNotNull() {
+            addCriterion("content is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaEqualTo(Integer value) {
-            addCriterion("used_quota =", value, "usedQuota");
+        public Criteria andContentEqualTo(String value) {
+            addCriterion("content =", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaNotEqualTo(Integer value) {
-            addCriterion("used_quota <>", value, "usedQuota");
+        public Criteria andContentNotEqualTo(String value) {
+            addCriterion("content <>", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaGreaterThan(Integer value) {
-            addCriterion("used_quota >", value, "usedQuota");
+        public Criteria andContentGreaterThan(String value) {
+            addCriterion("content >", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaGreaterThanOrEqualTo(Integer value) {
-            addCriterion("used_quota >=", value, "usedQuota");
+        public Criteria andContentGreaterThanOrEqualTo(String value) {
+            addCriterion("content >=", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaLessThan(Integer value) {
-            addCriterion("used_quota <", value, "usedQuota");
+        public Criteria andContentLessThan(String value) {
+            addCriterion("content <", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaLessThanOrEqualTo(Integer value) {
-            addCriterion("used_quota <=", value, "usedQuota");
+        public Criteria andContentLessThanOrEqualTo(String value) {
+            addCriterion("content <=", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaIn(List<Integer> values) {
-            addCriterion("used_quota in", values, "usedQuota");
+        public Criteria andContentLike(String value) {
+            addCriterion("content like", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaNotIn(List<Integer> values) {
-            addCriterion("used_quota not in", values, "usedQuota");
+        public Criteria andContentNotLike(String value) {
+            addCriterion("content not like", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaBetween(Integer value1, Integer value2) {
-            addCriterion("used_quota between", value1, value2, "usedQuota");
+        public Criteria andContentIn(List<String> values) {
+            addCriterion("content in", values, "content");
             return (Criteria) this;
         }
 
-        public Criteria andUsedQuotaNotBetween(Integer value1, Integer value2) {
-            addCriterion("used_quota not between", value1, value2, "usedQuota");
+        public Criteria andContentNotIn(List<String> values) {
+            addCriterion("content not in", values, "content");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaIsNull() {
-            addCriterion("surplus_quota is null");
+        public Criteria andContentBetween(String value1, String value2) {
+            addCriterion("content between", value1, value2, "content");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaIsNotNull() {
-            addCriterion("surplus_quota is not null");
+        public Criteria andContentNotBetween(String value1, String value2) {
+            addCriterion("content not between", value1, value2, "content");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaEqualTo(Integer value) {
-            addCriterion("surplus_quota =", value, "surplusQuota");
+        public Criteria andUsedTimeIsNull() {
+            addCriterion("used_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaNotEqualTo(Integer value) {
-            addCriterion("surplus_quota <>", value, "surplusQuota");
+        public Criteria andUsedTimeIsNotNull() {
+            addCriterion("used_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaGreaterThan(Integer value) {
-            addCriterion("surplus_quota >", value, "surplusQuota");
+        public Criteria andUsedTimeEqualTo(Date value) {
+            addCriterion("used_time =", value, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaGreaterThanOrEqualTo(Integer value) {
-            addCriterion("surplus_quota >=", value, "surplusQuota");
+        public Criteria andUsedTimeNotEqualTo(Date value) {
+            addCriterion("used_time <>", value, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaLessThan(Integer value) {
-            addCriterion("surplus_quota <", value, "surplusQuota");
+        public Criteria andUsedTimeGreaterThan(Date value) {
+            addCriterion("used_time >", value, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaLessThanOrEqualTo(Integer value) {
-            addCriterion("surplus_quota <=", value, "surplusQuota");
+        public Criteria andUsedTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("used_time >=", value, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaIn(List<Integer> values) {
-            addCriterion("surplus_quota in", values, "surplusQuota");
+        public Criteria andUsedTimeLessThan(Date value) {
+            addCriterion("used_time <", value, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaNotIn(List<Integer> values) {
-            addCriterion("surplus_quota not in", values, "surplusQuota");
+        public Criteria andUsedTimeLessThanOrEqualTo(Date value) {
+            addCriterion("used_time <=", value, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaBetween(Integer value1, Integer value2) {
-            addCriterion("surplus_quota between", value1, value2, "surplusQuota");
+        public Criteria andUsedTimeIn(List<Date> values) {
+            addCriterion("used_time in", values, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andSurplusQuotaNotBetween(Integer value1, Integer value2) {
-            addCriterion("surplus_quota not between", value1, value2, "surplusQuota");
+        public Criteria andUsedTimeNotIn(List<Date> values) {
+            addCriterion("used_time not in", values, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andTotalQuotaIsNull() {
-            addCriterion("total_quota is null");
+        public Criteria andUsedTimeBetween(Date value1, Date value2) {
+            addCriterion("used_time between", value1, value2, "usedTime");
             return (Criteria) this;
         }
 
-        public Criteria andTotalQuotaIsNotNull() {
-            addCriterion("total_quota is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaEqualTo(Integer value) {
-            addCriterion("total_quota =", value, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaNotEqualTo(Integer value) {
-            addCriterion("total_quota <>", value, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaGreaterThan(Integer value) {
-            addCriterion("total_quota >", value, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaGreaterThanOrEqualTo(Integer value) {
-            addCriterion("total_quota >=", value, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaLessThan(Integer value) {
-            addCriterion("total_quota <", value, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaLessThanOrEqualTo(Integer value) {
-            addCriterion("total_quota <=", value, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaIn(List<Integer> values) {
-            addCriterion("total_quota in", values, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaNotIn(List<Integer> values) {
-            addCriterion("total_quota not in", values, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaBetween(Integer value1, Integer value2) {
-            addCriterion("total_quota between", value1, value2, "totalQuota");
-            return (Criteria) this;
-        }
-
-        public Criteria andTotalQuotaNotBetween(Integer value1, Integer value2) {
-            addCriterion("total_quota not between", value1, value2, "totalQuota");
+        public Criteria andUsedTimeNotBetween(Date value1, Date value2) {
+            addCriterion("used_time not between", value1, value2, "usedTime");
             return (Criteria) this;
         }
 
@@ -676,62 +626,62 @@ public class StickerExample {
         }
 
         public Criteria andStatusIsNull() {
-            addCriterion("`status` is null");
+            addCriterion("status is null");
             return (Criteria) this;
         }
 
         public Criteria andStatusIsNotNull() {
-            addCriterion("`status` is not null");
+            addCriterion("status is not null");
             return (Criteria) this;
         }
 
         public Criteria andStatusEqualTo(Integer value) {
-            addCriterion("`status` =", value, "status");
+            addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusNotEqualTo(Integer value) {
-            addCriterion("`status` <>", value, "status");
+            addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusGreaterThan(Integer value) {
-            addCriterion("`status` >", value, "status");
+            addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("`status` >=", value, "status");
+            addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusLessThan(Integer value) {
-            addCriterion("`status` <", value, "status");
+            addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("`status` <=", value, "status");
+            addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusIn(List<Integer> values) {
-            addCriterion("`status` in", values, "status");
+            addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusNotIn(List<Integer> values) {
-            addCriterion("`status` not in", values, "status");
+            addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusBetween(Integer value1, Integer value2) {
-            addCriterion("`status` between", value1, value2, "status");
+            addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("`status` not between", value1, value2, "status");
+            addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
     }

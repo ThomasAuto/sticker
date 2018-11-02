@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="cn.xiaoyanol.sticker.domain.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
     <result column="city" jdbcType="VARCHAR" property="city" />
@@ -73,7 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, open_id, gender, avatar_url, city, province, mobile, email, ctime, utime, `status`
+    id, open_id, nick_name, gender, avatar_url, city, province, mobile, email, ctime, 
+    utime, status
   </sql>
   <select id="selectByExample" parameterType="cn.xiaoyanol.sticker.domain.UserExample" resultMap="BaseResultMap">
     select
@@ -114,14 +116,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.xiaoyanol.sticker.domain.User">
-    insert into sticker_user (id, open_id, gender, 
-      avatar_url, city, province, 
-      mobile, email, ctime, 
-      utime, `status`)
-    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
-      #{avatarUrl,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
-      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{ctime,jdbcType=TIMESTAMP}, 
-      #{utime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+    insert into sticker_user (id, open_id, nick_name, 
+      gender, avatar_url, city, 
+      province, mobile, email, 
+      ctime, utime, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{avatarUrl,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{ctime,jdbcType=TIMESTAMP}, #{utime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.xiaoyanol.sticker.domain.User">
     insert into sticker_user
@@ -131,6 +135,9 @@
       </if>
       <if test="openId != null">
         open_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
       </if>
       <if test="gender != null">
         gender,
@@ -157,7 +164,7 @@
         utime,
       </if>
       <if test="status != null">
-        `status`,
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -166,6 +173,9 @@
       </if>
       <if test="openId != null">
         #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="gender != null">
         #{gender,jdbcType=INTEGER},
@@ -211,6 +221,9 @@
       <if test="record.openId != null">
         open_id = #{record.openId,jdbcType=VARCHAR},
       </if>
+      <if test="record.nickName != null">
+        nick_name = #{record.nickName,jdbcType=VARCHAR},
+      </if>
       <if test="record.gender != null">
         gender = #{record.gender,jdbcType=INTEGER},
       </if>
@@ -236,7 +249,7 @@
         utime = #{record.utime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null">
-        `status` = #{record.status,jdbcType=INTEGER},
+        status = #{record.status,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -247,6 +260,7 @@
     update sticker_user
     set id = #{record.id,jdbcType=INTEGER},
       open_id = #{record.openId,jdbcType=VARCHAR},
+      nick_name = #{record.nickName,jdbcType=VARCHAR},
       gender = #{record.gender,jdbcType=INTEGER},
       avatar_url = #{record.avatarUrl,jdbcType=VARCHAR},
       city = #{record.city,jdbcType=VARCHAR},
@@ -255,7 +269,7 @@
       email = #{record.email,jdbcType=VARCHAR},
       ctime = #{record.ctime,jdbcType=TIMESTAMP},
       utime = #{record.utime,jdbcType=TIMESTAMP},
-      `status` = #{record.status,jdbcType=INTEGER}
+      status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -265,6 +279,9 @@
     <set>
       <if test="openId != null">
         open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="gender != null">
         gender = #{gender,jdbcType=INTEGER},
@@ -291,7 +308,7 @@
         utime = #{utime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
-        `status` = #{status,jdbcType=INTEGER},
+        status = #{status,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -299,6 +316,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.xiaoyanol.sticker.domain.User">
     update sticker_user
     set open_id = #{openId,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=INTEGER},
       avatar_url = #{avatarUrl,jdbcType=VARCHAR},
       city = #{city,jdbcType=VARCHAR},
@@ -307,7 +325,7 @@
       email = #{email,jdbcType=VARCHAR},
       ctime = #{ctime,jdbcType=TIMESTAMP},
       utime = #{utime,jdbcType=TIMESTAMP},
-      `status` = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

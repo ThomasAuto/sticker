@@ -15,6 +15,11 @@ public class UserVO {
     private String openId;
 
     /**
+     * 微信用户名
+     */
+    private String nickName;
+
+    /**
      * 性别 1 - 男， 2-女
      */
     private Integer gender;
@@ -33,6 +38,11 @@ public class UserVO {
      * 省份
      */
     private String province;
+
+    /**
+     * 国家
+     */
+    private String country;
 
     /**
      * 手机号
@@ -58,6 +68,11 @@ public class UserVO {
      * 是否有效 0- 无效， 1-有效
      */
     private Integer status;
+
+    /**
+     * 微信登录码（获取openId）
+     */
+    private String code;
 
     public Integer getId() {
         return id;
@@ -145,5 +160,29 @@ public class UserVO {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

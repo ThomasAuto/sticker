@@ -4,7 +4,6 @@ import cn.xiaoyanol.sticker.domain.Sticker;
 import cn.xiaoyanol.sticker.domain.StickerExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 public interface IStickerDAO {
     long countByExample(StickerExample example);

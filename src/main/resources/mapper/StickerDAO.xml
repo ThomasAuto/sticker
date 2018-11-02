@@ -5,10 +5,9 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="happy_url" jdbcType="VARCHAR" property="happyUrl" />
-    <result column="today_used" jdbcType="INTEGER" property="todayUsed" />
-    <result column="used_quota" jdbcType="INTEGER" property="usedQuota" />
-    <result column="surplus_quota" jdbcType="INTEGER" property="surplusQuota" />
-    <result column="total_quota" jdbcType="INTEGER" property="totalQuota" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="used_time" jdbcType="TIMESTAMP" property="usedTime" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
     <result column="utime" jdbcType="TIMESTAMP" property="utime" />
     <result column="status" jdbcType="INTEGER" property="status" />
@@ -72,8 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, happy_url, today_used, used_quota, surplus_quota, total_quota, ctime, 
-    utime, `status`
+    id, user_id, happy_url, amount, content, used_time, ctime, utime, status
   </sql>
   <select id="selectByExample" parameterType="cn.xiaoyanol.sticker.domain.StickerExample" resultMap="BaseResultMap">
     select
@@ -115,13 +113,13 @@
   </delete>
   <insert id="insert" parameterType="cn.xiaoyanol.sticker.domain.Sticker">
     insert into sticker_sticker (id, user_id, happy_url, 
-      today_used, used_quota, surplus_quota, 
-      total_quota, ctime, utime, 
-      `status`)
+      amount, content, used_time, 
+      ctime, utime, status
+      )
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{happyUrl,jdbcType=VARCHAR}, 
-      #{todayUsed,jdbcType=INTEGER}, #{usedQuota,jdbcType=INTEGER}, #{surplusQuota,jdbcType=INTEGER}, 
-      #{totalQuota,jdbcType=INTEGER}, #{ctime,jdbcType=TIMESTAMP}, #{utime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=INTEGER})
+      #{amount,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{usedTime,jdbcType=TIMESTAMP}, 
+      #{ctime,jdbcType=TIMESTAMP}, #{utime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.xiaoyanol.sticker.domain.Sticker">
     insert into sticker_sticker
@@ -135,17 +133,14 @@
       <if test="happyUrl != null">
         happy_url,
       </if>
-      <if test="todayUsed != null">
-        today_used,
+      <if test="amount != null">
+        amount,
       </if>
-      <if test="usedQuota != null">
-        used_quota,
+      <if test="content != null">
+        content,
       </if>
-      <if test="surplusQuota != null">
-        surplus_quota,
-      </if>
-      <if test="totalQuota != null">
-        total_quota,
+      <if test="usedTime != null">
+        used_time,
       </if>
       <if test="ctime != null">
         ctime,
@@ -154,7 +149,7 @@
         utime,
       </if>
       <if test="status != null">
-        `status`,
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -167,17 +162,14 @@
       <if test="happyUrl != null">
         #{happyUrl,jdbcType=VARCHAR},
       </if>
-      <if test="todayUsed != null">
-        #{todayUsed,jdbcType=INTEGER},
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
       </if>
-      <if test="usedQuota != null">
-        #{usedQuota,jdbcType=INTEGER},
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
       </if>
-      <if test="surplusQuota != null">
-        #{surplusQuota,jdbcType=INTEGER},
-      </if>
-      <if test="totalQuota != null">
-        #{totalQuota,jdbcType=INTEGER},
+      <if test="usedTime != null">
+        #{usedTime,jdbcType=TIMESTAMP},
       </if>
       <if test="ctime != null">
         #{ctime,jdbcType=TIMESTAMP},
@@ -208,17 +200,14 @@
       <if test="record.happyUrl != null">
         happy_url = #{record.happyUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.todayUsed != null">
-        today_used = #{record.todayUsed,jdbcType=INTEGER},
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=INTEGER},
       </if>
-      <if test="record.usedQuota != null">
-        used_quota = #{record.usedQuota,jdbcType=INTEGER},
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.surplusQuota != null">
-        surplus_quota = #{record.surplusQuota,jdbcType=INTEGER},
-      </if>
-      <if test="record.totalQuota != null">
-        total_quota = #{record.totalQuota,jdbcType=INTEGER},
+      <if test="record.usedTime != null">
+        used_time = #{record.usedTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.ctime != null">
         ctime = #{record.ctime,jdbcType=TIMESTAMP},
@@ -227,7 +216,7 @@
         utime = #{record.utime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null">
-        `status` = #{record.status,jdbcType=INTEGER},
+        status = #{record.status,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -239,13 +228,12 @@
     set id = #{record.id,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=INTEGER},
       happy_url = #{record.happyUrl,jdbcType=VARCHAR},
-      today_used = #{record.todayUsed,jdbcType=INTEGER},
-      used_quota = #{record.usedQuota,jdbcType=INTEGER},
-      surplus_quota = #{record.surplusQuota,jdbcType=INTEGER},
-      total_quota = #{record.totalQuota,jdbcType=INTEGER},
+      amount = #{record.amount,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=VARCHAR},
+      used_time = #{record.usedTime,jdbcType=TIMESTAMP},
       ctime = #{record.ctime,jdbcType=TIMESTAMP},
       utime = #{record.utime,jdbcType=TIMESTAMP},
-      `status` = #{record.status,jdbcType=INTEGER}
+      status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -259,17 +247,14 @@
       <if test="happyUrl != null">
         happy_url = #{happyUrl,jdbcType=VARCHAR},
       </if>
-      <if test="todayUsed != null">
-        today_used = #{todayUsed,jdbcType=INTEGER},
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
       </if>
-      <if test="usedQuota != null">
-        used_quota = #{usedQuota,jdbcType=INTEGER},
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="surplusQuota != null">
-        surplus_quota = #{surplusQuota,jdbcType=INTEGER},
-      </if>
-      <if test="totalQuota != null">
-        total_quota = #{totalQuota,jdbcType=INTEGER},
+      <if test="usedTime != null">
+        used_time = #{usedTime,jdbcType=TIMESTAMP},
       </if>
       <if test="ctime != null">
         ctime = #{ctime,jdbcType=TIMESTAMP},
@@ -278,7 +263,7 @@
         utime = #{utime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
-        `status` = #{status,jdbcType=INTEGER},
+        status = #{status,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -287,13 +272,12 @@
     update sticker_sticker
     set user_id = #{userId,jdbcType=INTEGER},
       happy_url = #{happyUrl,jdbcType=VARCHAR},
-      today_used = #{todayUsed,jdbcType=INTEGER},
-      used_quota = #{usedQuota,jdbcType=INTEGER},
-      surplus_quota = #{surplusQuota,jdbcType=INTEGER},
-      total_quota = #{totalQuota,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      used_time = #{usedTime,jdbcType=TIMESTAMP},
       ctime = #{ctime,jdbcType=TIMESTAMP},
       utime = #{utime,jdbcType=TIMESTAMP},
-      `status` = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

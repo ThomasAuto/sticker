@@ -4,7 +4,6 @@ import cn.xiaoyanol.sticker.domain.User;
 import cn.xiaoyanol.sticker.domain.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 public interface IUserDAO {
     long countByExample(UserExample example);

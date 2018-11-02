@@ -18,6 +18,15 @@ public class ResponseJson {
 
     public ResponseJson(){}
 
+    public ResponseJson(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public static ResponseJson getSuccessResponseJson() {
+        return new ResponseJson(0, "ok");
+    }
+
     public Integer getCode() {
         return code;
     }

@@ -13,7 +13,7 @@ public class UserExample {
 
     private Integer limit;
 
-    private Long offset;
+    private Integer offset;
 
     public UserExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -76,11 +76,11 @@ public class UserExample {
         return limit;
     }
 
-    public void setOffset(Long offset) {
+    public void setOffset(Integer offset) {
         this.offset = offset;
     }
 
-    public Long getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 
@@ -252,6 +252,76 @@ public class UserExample {
 
         public Criteria andOpenIdNotBetween(String value1, String value2) {
             addCriterion("open_id not between", value1, value2, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameIsNull() {
+            addCriterion("nick_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameIsNotNull() {
+            addCriterion("nick_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameEqualTo(String value) {
+            addCriterion("nick_name =", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameNotEqualTo(String value) {
+            addCriterion("nick_name <>", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameGreaterThan(String value) {
+            addCriterion("nick_name >", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameGreaterThanOrEqualTo(String value) {
+            addCriterion("nick_name >=", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameLessThan(String value) {
+            addCriterion("nick_name <", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameLessThanOrEqualTo(String value) {
+            addCriterion("nick_name <=", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameLike(String value) {
+            addCriterion("nick_name like", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameNotLike(String value) {
+            addCriterion("nick_name not like", value, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameIn(List<String> values) {
+            addCriterion("nick_name in", values, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameNotIn(List<String> values) {
+            addCriterion("nick_name not in", values, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameBetween(String value1, String value2) {
+            addCriterion("nick_name between", value1, value2, "nickName");
+            return (Criteria) this;
+        }
+
+        public Criteria andNickNameNotBetween(String value1, String value2) {
+            addCriterion("nick_name not between", value1, value2, "nickName");
             return (Criteria) this;
         }
 
@@ -786,62 +856,62 @@ public class UserExample {
         }
 
         public Criteria andStatusIsNull() {
-            addCriterion("`status` is null");
+            addCriterion("status is null");
             return (Criteria) this;
         }
 
         public Criteria andStatusIsNotNull() {
-            addCriterion("`status` is not null");
+            addCriterion("status is not null");
             return (Criteria) this;
         }
 
         public Criteria andStatusEqualTo(Integer value) {
-            addCriterion("`status` =", value, "status");
+            addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusNotEqualTo(Integer value) {
-            addCriterion("`status` <>", value, "status");
+            addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusGreaterThan(Integer value) {
-            addCriterion("`status` >", value, "status");
+            addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("`status` >=", value, "status");
+            addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusLessThan(Integer value) {
-            addCriterion("`status` <", value, "status");
+            addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("`status` <=", value, "status");
+            addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusIn(List<Integer> values) {
-            addCriterion("`status` in", values, "status");
+            addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusNotIn(List<Integer> values) {
-            addCriterion("`status` not in", values, "status");
+            addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusBetween(Integer value1, Integer value2) {
-            addCriterion("`status` between", value1, value2, "status");
+            addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
         public Criteria andStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("`status` not between", value1, value2, "status");
+            addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
     }

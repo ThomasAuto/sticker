@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * sticker_user
  * @author 
  */
 public class User implements Serializable {
@@ -17,6 +16,11 @@ public class User implements Serializable {
      * 微信的openId
      */
     private String openId;
+
+    /**
+     * 微信用户名
+     */
+    private String nickName;
 
     /**
      * 性别 1 - 男， 2-女
@@ -79,6 +83,14 @@ public class User implements Serializable {
 
     public void setOpenId(String openId) {
         this.openId = openId;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public Integer getGender() {
@@ -167,6 +179,7 @@ public class User implements Serializable {
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getOpenId() == null ? other.getOpenId() == null : this.getOpenId().equals(other.getOpenId()))
+            && (this.getNickName() == null ? other.getNickName() == null : this.getNickName().equals(other.getNickName()))
             && (this.getGender() == null ? other.getGender() == null : this.getGender().equals(other.getGender()))
             && (this.getAvatarUrl() == null ? other.getAvatarUrl() == null : this.getAvatarUrl().equals(other.getAvatarUrl()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
@@ -184,6 +197,7 @@ public class User implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getOpenId() == null) ? 0 : getOpenId().hashCode());
+        result = prime * result + ((getNickName() == null) ? 0 : getNickName().hashCode());
         result = prime * result + ((getGender() == null) ? 0 : getGender().hashCode());
         result = prime * result + ((getAvatarUrl() == null) ? 0 : getAvatarUrl().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
@@ -204,6 +218,7 @@ public class User implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", openId=").append(openId);
+        sb.append(", nickName=").append(nickName);
         sb.append(", gender=").append(gender);
         sb.append(", avatarUrl=").append(avatarUrl);
         sb.append(", city=").append(city);

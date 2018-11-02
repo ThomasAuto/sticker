@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * sticker_sticker
  * @author 
  */
 public class Sticker implements Serializable {
@@ -24,27 +23,22 @@ public class Sticker implements Serializable {
     private String happyUrl;
 
     /**
-     * 今日已用
+     * 花费
      */
-    private Integer todayUsed;
+    private Integer amount;
 
     /**
-     * 已用额度
+     * 使用途径
      */
-    private Integer usedQuota;
+    private String content;
 
     /**
-     * 剩余额度
+     * 使用时间
      */
-    private Integer surplusQuota;
+    private Date usedTime;
 
     /**
-     * 总额度
-     */
-    private Integer totalQuota;
-
-    /**
-     * 更新时间
+     * 创建时间
      */
     private Date ctime;
 
@@ -84,36 +78,28 @@ public class Sticker implements Serializable {
         this.happyUrl = happyUrl;
     }
 
-    public Integer getTodayUsed() {
-        return todayUsed;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setTodayUsed(Integer todayUsed) {
-        this.todayUsed = todayUsed;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
-    public Integer getUsedQuota() {
-        return usedQuota;
+    public String getContent() {
+        return content;
     }
 
-    public void setUsedQuota(Integer usedQuota) {
-        this.usedQuota = usedQuota;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Integer getSurplusQuota() {
-        return surplusQuota;
+    public Date getUsedTime() {
+        return usedTime;
     }
 
-    public void setSurplusQuota(Integer surplusQuota) {
-        this.surplusQuota = surplusQuota;
-    }
-
-    public Integer getTotalQuota() {
-        return totalQuota;
-    }
-
-    public void setTotalQuota(Integer totalQuota) {
-        this.totalQuota = totalQuota;
+    public void setUsedTime(Date usedTime) {
+        this.usedTime = usedTime;
     }
 
     public Date getCtime() {
@@ -155,10 +141,9 @@ public class Sticker implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getHappyUrl() == null ? other.getHappyUrl() == null : this.getHappyUrl().equals(other.getHappyUrl()))
-            && (this.getTodayUsed() == null ? other.getTodayUsed() == null : this.getTodayUsed().equals(other.getTodayUsed()))
-            && (this.getUsedQuota() == null ? other.getUsedQuota() == null : this.getUsedQuota().equals(other.getUsedQuota()))
-            && (this.getSurplusQuota() == null ? other.getSurplusQuota() == null : this.getSurplusQuota().equals(other.getSurplusQuota()))
-            && (this.getTotalQuota() == null ? other.getTotalQuota() == null : this.getTotalQuota().equals(other.getTotalQuota()))
+            && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getUsedTime() == null ? other.getUsedTime() == null : this.getUsedTime().equals(other.getUsedTime()))
             && (this.getCtime() == null ? other.getCtime() == null : this.getCtime().equals(other.getCtime()))
             && (this.getUtime() == null ? other.getUtime() == null : this.getUtime().equals(other.getUtime()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
@@ -171,10 +156,9 @@ public class Sticker implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getHappyUrl() == null) ? 0 : getHappyUrl().hashCode());
-        result = prime * result + ((getTodayUsed() == null) ? 0 : getTodayUsed().hashCode());
-        result = prime * result + ((getUsedQuota() == null) ? 0 : getUsedQuota().hashCode());
-        result = prime * result + ((getSurplusQuota() == null) ? 0 : getSurplusQuota().hashCode());
-        result = prime * result + ((getTotalQuota() == null) ? 0 : getTotalQuota().hashCode());
+        result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getUsedTime() == null) ? 0 : getUsedTime().hashCode());
         result = prime * result + ((getCtime() == null) ? 0 : getCtime().hashCode());
         result = prime * result + ((getUtime() == null) ? 0 : getUtime().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
@@ -190,10 +174,9 @@ public class Sticker implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", happyUrl=").append(happyUrl);
-        sb.append(", todayUsed=").append(todayUsed);
-        sb.append(", usedQuota=").append(usedQuota);
-        sb.append(", surplusQuota=").append(surplusQuota);
-        sb.append(", totalQuota=").append(totalQuota);
+        sb.append(", amount=").append(amount);
+        sb.append(", content=").append(content);
+        sb.append(", usedTime=").append(usedTime);
         sb.append(", ctime=").append(ctime);
         sb.append(", utime=").append(utime);
         sb.append(", status=").append(status);
