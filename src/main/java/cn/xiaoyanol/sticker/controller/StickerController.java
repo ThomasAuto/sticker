@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -45,6 +46,9 @@ public class StickerController {
     public ResponseJson getUserRecord(@RequestBody RecordQueryVO recordQueryVO) throws ServiceException, ParseException {
 
         ResponseJson responseJson = ResponseJson.getSuccessResponseJson();
+        if (StringUtils.isEmpty(recordQueryVO.getOpenId())) {
+            return responseJson;
+        }
 
         User user = userService.queryUserByOpenId(recordQueryVO.getOpenId());
 
