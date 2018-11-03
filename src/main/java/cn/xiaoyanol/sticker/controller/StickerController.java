@@ -119,6 +119,13 @@ public class StickerController {
             outAll +=out;
         }
 
+        Collections.sort(recordDayVOList, new Comparator<RecordDayVO>() {
+            @Override
+            public int compare(RecordDayVO o1, RecordDayVO o2) {
+                return (int) (o2.getTime().getTime() - o1.getTime().getTime());
+            }
+        });
+
         recordVO.setIncome(inAll);
         recordVO.setCost(outAll);
         recordVO.setRecordDayVOS(recordDayVOList);
