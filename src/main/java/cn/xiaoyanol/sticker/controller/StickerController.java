@@ -159,7 +159,7 @@ public class StickerController {
         Sticker sticker = new Sticker();
         sticker.setUserId(stickerVO.getUserId());
         // 金额按分处理
-        sticker.setAmount((int) (new Double(sticker.getAmount()) * 100));
+        sticker.setAmount((int) (new Double(stickerVO.getAmount()) * 100));
         sticker.setUsedTime(new Date());
         sticker.setContent(stickerVO.getContent());
         //如果是支出 设置为负数
