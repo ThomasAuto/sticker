@@ -30,7 +30,7 @@ public class StickerVO {
     /**
      * 花费
      */
-    private Integer amount;
+    private Double amount;
 
     /**
      * 使用途径
@@ -83,11 +83,11 @@ public class StickerVO {
         this.happyUrl = happyUrl;
     }
 
-    public Integer getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

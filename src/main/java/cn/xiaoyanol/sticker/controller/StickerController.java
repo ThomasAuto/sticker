@@ -7,6 +7,7 @@ import cn.xiaoyanol.sticker.domain.User;
 import cn.xiaoyanol.sticker.exception.ServiceException;
 import cn.xiaoyanol.sticker.service.IStickerService;
 import cn.xiaoyanol.sticker.service.IUserService;
+import cn.xiaoyanol.sticker.utils.MoneyUtils;
 import cn.xiaoyanol.sticker.vo.RecordDayVO;
 import cn.xiaoyanol.sticker.vo.RecordQueryVO;
 import cn.xiaoyanol.sticker.vo.RecordVO;
@@ -81,15 +82,15 @@ public class StickerController {
             if (preSticker == null) {
                 list.add(sticker);
                 recordDayVOList.add(recordDayVO);
-                recordDayVO.setCost(sticker.getAmount());
-                recordDayVO.setIncome(sticker.getAmount());
+                recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
+                recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setStickerList(list);
                 recordDayVO.setTime(sticker.getUsedTime());
                 preSticker = sticker;
             }else if (preSticker.getUsedTime().getTime() == sticker.getUsedTime().getTime()) {
                 list.add(sticker);
-                recordDayVO.setCost(sticker.getAmount());
-                recordDayVO.setIncome(sticker.getAmount());
+                recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
+                recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 preSticker = sticker;
             }else {
                 list = new ArrayList<>();
@@ -97,8 +98,8 @@ public class StickerController {
                 recordDayVOList.add(recordDayVO);
                 recordDayVO.setStickerList(list);
                 list.add(sticker);
-                recordDayVO.setCost(sticker.getAmount());
-                recordDayVO.setIncome(sticker.getAmount());
+                recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
+                recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setTime(sticker.getUsedTime());
                 preSticker = sticker;
             }
@@ -118,8 +119,8 @@ public class StickerController {
                     in += s.getAmount();
                 }
             }
-            rdv.setCost(out);
-            rdv.setIncome(in);
+            rdv.setCost(MoneyUtils.convertCentToYuan(out));
+            rdv.setIncome(MoneyUtils.convertCentToYuan(in));
             outAll +=out;
             inAll +=in;
         }
@@ -131,8 +132,8 @@ public class StickerController {
             }
         });
 
-        recordVO.setIncome(inAll);
-        recordVO.setCost(-outAll);
+        recordVO.setIncome(MoneyUtils.convertCentToYuan(inAll));
+        recordVO.setCost(MoneyUtils.convertCentToYuan(-outAll));
         recordVO.setRecordDayVOS(recordDayVOList);
         responseJson.setData(recordVO);
         return responseJson;
@@ -155,7 +156,8 @@ public class StickerController {
 
         Sticker sticker = new Sticker();
         sticker.setUserId(stickerVO.getUserId());
-        sticker.setAmount(stickerVO.getAmount());
+        // 金额按分处理
+        sticker.setAmount(stickerVO.getAmount().intValue() * 100);
         sticker.setUsedTime(new Date());
         sticker.setContent(stickerVO.getContent());
         //如果是支出 设置为负数

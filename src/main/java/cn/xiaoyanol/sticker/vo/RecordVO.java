@@ -21,12 +21,12 @@ public class RecordVO {
     /**
      * 支出
      */
-    private Integer cost;
+    private String cost;
 
     /**
      * 收入
      */
-    private Integer income;
+    private String income;
 
     /**
      * 详细记录
@@ -42,19 +42,19 @@ public class RecordVO {
         this.time = time;
     }
 
-    public Integer getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 
-    public Integer getIncome() {
+    public String getIncome() {
         return income;
     }
 
-    public void setIncome(Integer income) {
+    public void setIncome(String income) {
         this.income = income;
     }
 
