@@ -57,6 +57,11 @@ public class StickerVO {
      */
     private Integer status;
 
+    /**
+     * 支出收入标识 true 支出 false 收入
+     */
+    private Boolean outFlag;
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -124,5 +129,17 @@ public class StickerVO {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Boolean getOutFlag() {
+        return outFlag;
+    }
+
+    public void setOutFlag(Boolean outFlag) {
+        this.outFlag = outFlag;
     }
 }

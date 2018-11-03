@@ -112,11 +112,16 @@ public class StickerController {
             int in = 0;
             int out = 0;
             for (Sticker s : stickerList) {
-                out += s.getAmount();
+                if (s.getAmount() < 0) {
+                    out += s.getAmount();
+                }else {
+                    in += s.getAmount();
+                }
             }
             rdv.setCost(out);
             rdv.setIncome(in);
             outAll +=out;
+            inAll +=in;
         }
 
         Collections.sort(recordDayVOList, new Comparator<RecordDayVO>() {
@@ -150,9 +155,13 @@ public class StickerController {
 
         Sticker sticker = new Sticker();
         sticker.setUserId(stickerVO.getUserId());
-        sticker.setUsedTime(new Date());
         sticker.setAmount(stickerVO.getAmount());
+        sticker.setUsedTime(new Date());
         sticker.setContent(stickerVO.getContent());
+        //如果是支出 设置为负数
+        if (stickerVO.getOutFlag()){
+            sticker.setAmount(-sticker.getAmount());
+        }
 
         stickerService.add(sticker);
 
