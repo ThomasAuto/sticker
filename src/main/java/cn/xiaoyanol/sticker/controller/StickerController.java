@@ -132,7 +132,7 @@ public class StickerController {
         });
 
         recordVO.setIncome(inAll);
-        recordVO.setCost(outAll);
+        recordVO.setCost(-outAll);
         recordVO.setRecordDayVOS(recordDayVOList);
         responseJson.setData(recordVO);
         return responseJson;
