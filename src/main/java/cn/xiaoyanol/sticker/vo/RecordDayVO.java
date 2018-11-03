@@ -30,7 +30,7 @@ public class RecordDayVO {
      */
     private String income;
 
-    List<Sticker> stickerList;
+    List<MoneyStickerVO> stickerList;
 
 
     public Date getTime() {
@@ -57,11 +57,11 @@ public class RecordDayVO {
         this.income = income;
     }
 
-    public List<Sticker> getStickerList() {
+    public List<MoneyStickerVO> getStickerList() {
         return stickerList;
     }
 
-    public void setStickerList(List<Sticker> stickerList) {
+    public void setStickerList(List<MoneyStickerVO> stickerList) {
         this.stickerList = stickerList;
     }
 }

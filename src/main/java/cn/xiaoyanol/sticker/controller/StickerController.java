@@ -8,14 +8,12 @@ import cn.xiaoyanol.sticker.exception.ServiceException;
 import cn.xiaoyanol.sticker.service.IStickerService;
 import cn.xiaoyanol.sticker.service.IUserService;
 import cn.xiaoyanol.sticker.utils.MoneyUtils;
-import cn.xiaoyanol.sticker.vo.RecordDayVO;
-import cn.xiaoyanol.sticker.vo.RecordQueryVO;
-import cn.xiaoyanol.sticker.vo.RecordVO;
-import cn.xiaoyanol.sticker.vo.StickerVO;
+import cn.xiaoyanol.sticker.vo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -69,7 +67,8 @@ public class StickerController {
         List<RecordDayVO> recordDayVOList = new ArrayList<>();
         RecordDayVO recordDayVO = new RecordDayVO();
 
-        List<Sticker> list = new ArrayList<>();
+        List<MoneyStickerVO> list = new ArrayList<>();
+
 
         for (Sticker sticker : stickers) {
             Date usedTime = sticker.getUsedTime();
@@ -78,9 +77,10 @@ public class StickerController {
             Date parse = sdf.parse(format);
             sticker.setUsedTime(parse);
 
-
+            MoneyStickerVO moneyStickerVO = new MoneyStickerVO();
+            BeanUtils.copyProperties(sticker, moneyStickerVO);
             if (preSticker == null) {
-                list.add(sticker);
+                list.add(moneyStickerVO);
                 recordDayVOList.add(recordDayVO);
                 recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
@@ -88,7 +88,7 @@ public class StickerController {
                 recordDayVO.setTime(sticker.getUsedTime());
                 preSticker = sticker;
             }else if (preSticker.getUsedTime().getTime() == sticker.getUsedTime().getTime()) {
-                list.add(sticker);
+                list.add(moneyStickerVO);
                 recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 preSticker = sticker;
@@ -97,7 +97,7 @@ public class StickerController {
                 recordDayVO = new RecordDayVO();
                 recordDayVOList.add(recordDayVO);
                 recordDayVO.setStickerList(list);
-                list.add(sticker);
+                list.add(moneyStickerVO);
                 recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setTime(sticker.getUsedTime());
@@ -109,14 +109,14 @@ public class StickerController {
         int inAll = 0;
         int outAll = 0;
         for (RecordDayVO rdv : recordDayVOList) {
-            List<Sticker> stickerList = rdv.getStickerList();
+            List<MoneyStickerVO> stickerList = rdv.getStickerList();
             int in = 0;
             int out = 0;
-            for (Sticker s : stickerList) {
-                if (s.getAmount() < 0) {
-                    out += s.getAmount();
+            for (MoneyStickerVO s : stickerList) {
+                if (Integer.parseInt(s.getAmount()) < 0) {
+                    out += Integer.parseInt(s.getAmount()) * 100;
                 }else {
-                    in += s.getAmount();
+                    in += Integer.parseInt(s.getAmount()) * 100;
                 }
             }
             rdv.setCost(MoneyUtils.convertCentToYuan(out));

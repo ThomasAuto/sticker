@@ -15,7 +15,8 @@ public class MoneyUtils {
      * @return
      */
     public static String convertCentToYuan(Integer money) {
-        Double d = new Double(money/100);
+        Double d = new Double(money);
+        d = d / 100;
         return String.format("%.2f", new Object[]{d});
     }
 
