@@ -78,7 +78,7 @@ public class StickerController {
             sticker.setUsedTime(parse);
 
             MoneyStickerVO moneyStickerVO = new MoneyStickerVO();
-            BeanUtils.copyProperties(moneyStickerVO, sticker);
+            BeanUtils.copyProperties(sticker, moneyStickerVO);
             if (preSticker == null) {
                 list.add(moneyStickerVO);
                 recordDayVOList.add(recordDayVO);
