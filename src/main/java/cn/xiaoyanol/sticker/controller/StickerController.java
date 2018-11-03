@@ -114,7 +114,7 @@ public class StickerController {
             int in = 0;
             int out = 0;
             for (MoneyStickerVO s : stickerList) {
-                Double d = new Double(s.getAmount());
+                Double d = new Double(s.getAmount()) * 100;
                 if (d.intValue() < 0) {
                     out += d * 100;
                 }else {
