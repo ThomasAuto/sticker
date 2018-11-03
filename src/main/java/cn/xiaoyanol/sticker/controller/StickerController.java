@@ -62,7 +62,7 @@ public class StickerController {
             }
         });
         // 处理时间格式 -- 数据格式处理
-        Sticker preSticker = null;
+        MoneyStickerVO preSticker = null;
         RecordVO recordVO = new RecordVO();
         List<RecordDayVO> recordDayVOList = new ArrayList<>();
         RecordDayVO recordDayVO = new RecordDayVO();
@@ -86,12 +86,12 @@ public class StickerController {
                 recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setStickerList(list);
                 recordDayVO.setTime(sticker.getUsedTime());
-                preSticker = sticker;
+                preSticker = moneyStickerVO;
             }else if (preSticker.getUsedTime().getTime() == sticker.getUsedTime().getTime()) {
                 list.add(moneyStickerVO);
                 recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
-                preSticker = sticker;
+                preSticker = moneyStickerVO;
             }else {
                 list = new ArrayList<>();
                 recordDayVO = new RecordDayVO();
@@ -101,7 +101,7 @@ public class StickerController {
                 recordDayVO.setCost(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setIncome(MoneyUtils.convertCentToYuan(sticker.getAmount()));
                 recordDayVO.setTime(sticker.getUsedTime());
-                preSticker = sticker;
+                preSticker = moneyStickerVO;
             }
         }
 
