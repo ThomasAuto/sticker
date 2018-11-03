@@ -79,7 +79,7 @@ public class StickerController {
 
             MoneyStickerVO moneyStickerVO = new MoneyStickerVO();
             BeanUtils.copyProperties(sticker, moneyStickerVO);
-            moneyStickerVO.setAmount(sticker.getAmount().toString());
+            moneyStickerVO.setAmount(MoneyUtils.convertCentToYuan(sticker.getAmount()));
             if (preSticker == null) {
                 list.add(moneyStickerVO);
                 recordDayVOList.add(recordDayVO);
@@ -158,7 +158,7 @@ public class StickerController {
         Sticker sticker = new Sticker();
         sticker.setUserId(stickerVO.getUserId());
         // 金额按分处理
-        sticker.setAmount(stickerVO.getAmount().intValue() * 100);
+        sticker.setAmount((int) (new Double(sticker.getAmount()) * 100));
         sticker.setUsedTime(new Date());
         sticker.setContent(stickerVO.getContent());
         //如果是支出 设置为负数
