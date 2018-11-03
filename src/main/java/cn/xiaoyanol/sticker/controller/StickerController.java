@@ -114,10 +114,11 @@ public class StickerController {
             int in = 0;
             int out = 0;
             for (MoneyStickerVO s : stickerList) {
-                if (Integer.parseInt(s.getAmount()) < 0) {
-                    out += Integer.parseInt(s.getAmount()) * 100;
+                Double d = new Double(s.getAmount());
+                if (d.intValue() < 0) {
+                    out += d * 100;
                 }else {
-                    in += Integer.parseInt(s.getAmount()) * 100;
+                    in += d * 100;
                 }
             }
             rdv.setCost(MoneyUtils.convertCentToYuan(out));
