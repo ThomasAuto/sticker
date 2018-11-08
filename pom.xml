@@ -5,11 +5,11 @@
 
     <groupId>cn.xiaoyanol</groupId>
     <artifactId>sticker</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>sticker</name>
-    <description>记账贴纸</description>
+    <description>记账贴纸小程序后台</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
