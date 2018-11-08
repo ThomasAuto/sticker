@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 头部 --显示月份 -- 支出 -- 收入  -->
+  <view class='head'>
+    <view class='current-year'>
+      <view class='current-year-year'>
+        2018年
+      </view>
+      <view class='current-year-month'>
+        <text class='current-year-month-number'>{{nowMonth}}</text>
+        <text class='current-year-month-number-month'>月</text>
+      </view>
+    </view>
+    <view class='head-out'>
+      <view class='head-out-out'>
+        支出(元)
+      </view>
+      <view class='head-out-money'>
+        {{cost}}
+      </view>
+    </view>
+    <view class='head-in'>
+      <view class='head-in-in'>
+        收入(元)
+      </view>
+      <view class='head-in-money'>
+        {{income}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 明细 -- 类别报表 -- 账户 -->
+  <view class='middle'>
+    <view bindtap='userRecordSwitch' class="middle-record {{colorFlag ? 'selected' : ''}}">
+      明细
+    </view>
+    <!-- <view class='middle-category'>
+      开发中
+    </view> -->
+    <view bindtap="userCenterSwitch" class="middle-account {{colorFlag ?  '' : 'selected'}}">
+      个人中心
+    </view>
+  </view>
+
+  <!-- 用户记录 -->
+  <view class="{{userRecordFlag ? 'show' : 'hidden'}} user-record">
+    <!-- 详细记录 -->
+    <view class="section">
+      <scroll-view scroll-y="true" class='scroll-view' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view wx:for="{{recordDayVOS}}" wx:key="{{recordDayVOS}}">
+          <view class="scroll-view-item consume-date">
+            <text class='consume-date-date'>{{recordDayVOS[index].time}}</text>
+            <text class='consume-date-money'>支出：{{recordDayVOS[index].cost}} 收入：{{recordDayVOS[index].income}}</text>
+          </view>
+          <view wx:for="{{recordDayVOS[index].stickerList}}" wx:key="recordDayVOS[index].stickerList" wx:for-index="twoIndex" class="scroll-view-item consume-money">
+            <text class='consume-money-text'>{{recordDayVOS[index].stickerList[twoIndex].content}}</text>
+            <text class='consume-money-money'>{{recordDayVOS[index].stickerList[twoIndex].amount}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 记一笔 -->
+    <button class='add' bindtap='showDialogBtn'>
+      + 记一笔
+    </button>
+
+    <!--弹窗-->
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="modal-title">记一笔</view>
+      <view bindtap='outFlagSwitch' class="add-out {{outFlag ? 'out-selected' : '' }}">支出</view> <view bindtap='outFlagSwitch' class="add-in {{outFlag ? '' : 'out-selected' }}">收入</view>      
+      <view class="modal-content">
+        <view class="modal-input">
+          <input placeholder-class="input-holder" type="digit" maxlength="10" bindinput="inputMoney" class="input" placeholder="请输入花费金额"></input>
+        </view>
+
+        <view class="modal-input">
+          <input placeholder-class="input-holder" type="text" maxlength="10" bindinput="inputContent" class="input" placeholder="请输入备注"></input>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+      </view>
+    </view>
+  </view>
+  <!-- 个人中心 -->
+  <view class=" {{userCenterFlag ? 'show' : 'hidden'}} user-center">
+    <view class='user-center-content'>
+      <scroll-view scroll-y="true" class='scroll-view' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view>紧急开发中</view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

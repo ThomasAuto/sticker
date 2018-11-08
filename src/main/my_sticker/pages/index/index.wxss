@@ -1,0 +1,393 @@
+/**index.wxss**/
+
+.sticker{
+  width: 90%;
+  height: 500rpx;
+  margin-left: 10rpx;
+  margin-top: 120rpx;
+  margin-right: 10rpx;
+  margin-bottom: 100rpx;
+  border: 1rpx solid rgb(1, 7, 15);
+  border-radius: 10rpx;
+  background-color: rgb(223, 238, 9)
+
+}
+
+.today{
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+
+.all-quato{
+  margin-left: 30rpx;
+  margin-top: 120rpx;
+}
+.all-item{
+  height: 100rpx;
+}
+.item{
+  margin-top: 10rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+}
+.noneShowModel{
+  display: none
+}
+
+.head{
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  background-color: red;
+  display: flex;
+}
+
+.scroll-view-item{
+  height: 100px;
+}
+
+/* 展示年份的地方 */
+.current-year{
+  display: inline-block;
+  margin: auto;
+  width: 33%;
+  height: 70px;
+  background-color: #272a3a;
+  color: white;
+}
+
+.current-year-year{
+  line-height: 15px;
+  color: #707178;
+  font-size: 15px;
+}
+.current-year-month{
+  margin-left: 20px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 30px;
+}
+.c1urrent-year-month-number{
+  font-size: 40px;
+  text-align: center;
+}
+.c1urrent-year-month-number-month{
+  font-size: 15px;
+}
+
+/* 支出 */
+.head-out{
+  display: inline-block;
+  width: 33%;
+  height: 70px;
+  background-color: #272a3a;
+  color: white;  
+}
+
+.head-out-out{
+  line-height: 15px;
+  color: #707178;
+  font-size: 15px;
+}
+
+.head-out-money{
+  height: 55px;
+  line-height: 55px;
+  font-size: 15px;
+}
+.head-in{
+  display: inline-block;
+  width: 34%;
+  height: 70px;
+  background-color: #272a3a;
+  color: white;
+}
+
+.head-in-in{
+  line-height: 15px;
+  color: #707178;
+  font-size: 15px; 
+}
+
+.head-in-money{
+  height: 55px;
+  line-height: 55px;
+  font-size: 15px;
+}
+
+/* 中间 */
+.middle{
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: #5b5e68;
+  color: white;
+}
+.middle-record{
+  display: inline-block;
+  width: 50%;
+  height:40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 15px;
+}
+.middle-category{
+  display: inline-block;
+  width: 33%;
+  height:40px;
+  background-color: #5b5e68;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  font-size: 15px;
+}
+.middle-account{
+  display: inline-block;
+  width: 50%;
+  height:40px;
+  background-color: #5b5e68;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  font-size: 15px;
+}
+
+/* 记一笔 */
+.add{
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #2f89cf;
+  bottom: 0;
+}
+
+/* 记录-日期 */
+.consume-date{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: #5b5e68;
+  height: 20px;
+}
+.consume-date-date{
+  display: inline-block;
+  height: 20px;
+  width: 50%;
+  line-height: 20px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+.consume-date-money{
+  display: inline-block;
+  height: 20px;
+  width: 50%;
+  line-height: 20px;
+  font-size: 13px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* 记录-金钱 */
+.consume-money{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+}
+
+.consume-money-text{
+  display: inline-block;
+  height: 50px;
+  width: 70%;
+  line-height: 50px;
+  font-size: 20px;
+  margin-left: 10px;
+  border-bottom: 1px solid #dedede;
+  
+}
+
+.consume-money-money{
+  display: inline-block;
+  height: 50px;
+  width: 30%;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+  border-bottom: 1px solid #dedede;  
+}
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+
+.section{
+  width: 100%;
+  height: 100%;
+  flex: 1; 
+
+}
+
+.scroll-view{
+  width: 100%;
+  height: 100%;
+}
+
+page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 15rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}
+
+.user-record{
+  width: 100%;
+  height: 100px;
+  flex: 1; 
+    margin-bottom: 49px;  
+}
+
+.hidden{
+  display: none;
+}
+
+
+.user-center{
+  width: 100%;
+  height: 100px;
+  flex: 1; 
+}
+
+.user-center-content{
+  width: 100%;
+  height: 100%;
+  flex: 1; 
+  margin-bottom: 49px; 
+}
+
+.selected{
+  background-color:  white;
+  color: black;
+}
+
+.add-in{
+  display: inline-block;
+  width:30%;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  border-radius: 10%;
+  border: 1px solid;
+  height: 42rpx;
+  margin-left: 10%;
+  text-align: center;
+}
+
+.add-out{
+  margin-top: 10%;
+  display: inline-block;
+  width: 30%;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  margin-left: 14%;
+  border: 1px solid;
+  border-radius: 10%;
+  height: 42rpx;
+  text-align: center;
+}
+
+.out-selected{
+  background-color: #5b5e68;
+  color: white; 
+}
